@@ -7,7 +7,7 @@ const $wpm = $results.querySelector("#results-wpm");
 const $accuracy = $results.querySelector("#results-accuracy");
 const $button = document.querySelector("#reload-button");
 
-const initialTime = 2;
+const initialTime = 30;
 let currentTime = 0;
 
 initGame();
@@ -18,7 +18,7 @@ function initGame(){
     $results.style.display = "none"
     $input.value = ""
 
-    initialWords = words.toSorted(
+    const initialWords = words.toSorted(
         () => Math.random() - 0.5
     )
     .slice(0, 32);
@@ -86,7 +86,7 @@ function onKeyDown(event){
         return
     }
 
-    if (key === Backspace){
+    if (key === "Backspace"){
         const $prevWord = $currentWord.previousElementSibling
         const $prevLetter = $currentLetter.previousElementSibling
 
@@ -126,7 +126,7 @@ function onKeyUp(){
 
     const $allLetters = $currentWord.querySelectorAll("letter")
 
-    $allLetters.forEach($letter => letter.classList.remove("corect", "incorrect"))
+    $allLetters.forEach($letter => letter.classList.remove("correct", "incorrect"))
 
     $input.value.split("").forEach((char, index) => {
         const $letter = $allLetters[index]
