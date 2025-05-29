@@ -126,7 +126,7 @@ function onKeyUp(){
 
     const $allLetters = $currentWord.querySelectorAll("letter")
 
-    $allLetters.forEach($letter => letter.classList.remove("correct", "incorrect"))
+    $allLetters.forEach($letter => $letter.classList.remove("correct", "incorrect"))
 
     $input.value.split("").forEach((char, index) => {
         const $letter = $allLetters[index]
